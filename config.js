@@ -21,6 +21,7 @@ global.sessionName = 'jaa'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sessionName = 'jaa' //Gausah Juga
 global.welcome = false
+global.online = true
 global.sp = '⭔'
 global.mess = {
     success: '✓ Success',
