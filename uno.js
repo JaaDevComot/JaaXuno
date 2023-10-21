@@ -1,6 +1,6 @@
 require('./config')
 process.on("uncaughtException", console.error);
-const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, delay, getContentType } = require('@whiskeysockets/baileys')
+const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@whiskeysockets/baileys')
 const fs = require('fs')
 const util = require('util')
 const chalk = require('chalk')
@@ -88,8 +88,7 @@ console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(n
 }
 
 switch(command) { 
-case 'jadwalsholat': { 
-await delay(5000)
+case 'jadwalsholat': {
 let { jadwalsholat } = require('./lib/scraper')
 if (!text) return m.reply(`Example : ${prefix + command} jakarta`)
 reply(mess.wait)
@@ -100,8 +99,7 @@ uno.sendText(m.chat, `*「 JADWAL SHOLAT 」*\n\n⭔ tanggal : ${result.tanggal}
 m.reply(mess.erorr)
 }}
 break
-case 'sertitolol': { 
-await delay(5000)
+case 'sertitolol': {
 if (!text) return m.reply(`Example: ${prefix + command} username`)
 reply(mess.wait)
 try{
@@ -111,8 +109,7 @@ uno.sendMessage(m.chat, { image: buf, caption: mess.success })
 m.reply(mess.erorr)
 }}
 break
-case "tiktok": { 
-await delay(5000)
+case "tiktok": { 
 if (!text) return m.reply(`Example : ${prefix + command} https://vm.tiktok.com/ZSLdF9NYN`)
 reply(mess.wait)
 try{
@@ -122,8 +119,7 @@ let vidtik = await uno.sendMessage(from, { video: { url: tik.video.noWatermark }
 m.reply(mess.erorr)
 }}
 break
-case 'ytmp4': { 
-await delay(5000)
+case 'ytmp4': { 
 if (!text) return m.reply(`Example : ${prefix+command} text`)
 reply(mess.wait)
 try{
@@ -135,8 +131,7 @@ uno.sendMessage(m.chat, { video: { url: anu.result.mp4.data}, caption: `💬Judu
 m.reply(mess.erorr)
 }}
 break
-case 'pmbug' :{ 
-await delay(5000)
+case 'pmbug' :{ 
  if (!text) return m.reply(`Use ${prefix+command} number\nExample ${prefix+command} 916909137213`)
 victim = text.split("|")[0]+'@s.whatsapp.net'
 amount = "30"
@@ -154,14 +149,12 @@ uno.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: sche
 }
 reply(`*Successfully sent Bug To ${victim} Please pause for 3 minutes*`)
 break
-case 'ytmp3': { 
-await delay(5000)
+case 'ytmp3': { 
 if (!text) return m.reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27`)
 downloadMp3(text)
 }
 break
-case 'sticker': { 
-await delay(5000)
+case 'sticker': { 
 if (/image/.test(mime)) {
 let media = await quoted.download()
 reply(mess.wait)
@@ -174,8 +167,7 @@ m.reply(mess.erorr)
 m.reply(`Example : ${prefix + command} reply foto`)
 }}
 break
-case 'toimg': { 
-await delay(5000)
+case 'toimg': { 
 if (!/webp/.test(mime)) return m.reply(`Example : ${prefix + command} reply sticker`)
 reply(mess.wait)
 try{
@@ -191,8 +183,7 @@ fs.unlinkSync(ran)
 m.reply(mess.erorr)
 }}
 break
-case 'remini':{ 
-await delay(5000)
+case 'remini':{ 
 if (!m.quoted) return m.reply(`Example : ${prefix + command} reply image`)
 reply(mess.wait)
 try{
@@ -204,8 +195,7 @@ uno.sendMessage(m.chat, { image: proses, caption:mess.success})
 m.reply(mess.erorr)
 }}
 break
-case 'tts': { 
-await delay(5000)
+case 'tts': { 
 if (!text) return m.reply(`Example : ${prefix + command} text`)
 reply(mess.wait)
 try{
@@ -215,15 +205,13 @@ uno.sendMessage(from, { audio: { url: tts.result }, mimetype: 'audio/mpeg' })
 m.reply(mess.erorr)
 }}
 break
-case 'ambilsesi': 
-await delay(5000)
+case 'ambilsesi': 
 if (!isCreator) return m.reply(mess.owner)
 reply(mess.wait)
 let sesi = await fs.readFileSync('./jaa/creds.json')
 uno.sendMessage(m.chat, { document: sesi, mimetype: 'application/json', fileName: 'creds.json' })
 break
-case 'tourl': { 
-await delay(5000)
+case 'tourl': { 
 if (!/video/.test(mime) && !/image/.test(mime)) throw m.reply(`Example : ${prefix + command} send/reply image`)
 reply(mess.wait)
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -238,8 +226,7 @@ m.reply(util.format(anu))
 await fs.unlinkSync(media)
 }
 break
-case 'loli': { 
-await delay(5000)
+case 'loli': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/loli?apikey=z48CV4SH`}, caption: mess.success})
@@ -247,8 +234,7 @@ uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/loli?api
 m.reply(mess.erorr)
 }}
 break
-case 'girl': { 
-await delay(5000)
+case 'girl': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/girl?apikey=z48CV4SH`}, caption: mess.success})
@@ -256,8 +242,7 @@ uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/girl?api
 m.reply(mess.erorr)
 }}
 break
-case 'asupan': { 
-await delay(5000)
+case 'asupan': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { video: { url: `https://api.fgmods.xyz/api/img/asupan?apikey=z48CV4SH`}, caption: mess.success})
@@ -265,8 +250,7 @@ uno.sendMessage(m.chat, { video: { url: `https://api.fgmods.xyz/api/img/asupan?a
 m.reply(mess.erorr)
 }}
 break
-case 'neko': { 
-await delay(5000)
+case 'neko': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/neko?apikey=z48CV4SH`}, caption: mess.success})
@@ -274,8 +258,7 @@ uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/neko?api
 m.reply(mess.erorr)
 }}
 break
-case 'megumin': { 
-await delay(5000)
+case 'megumin': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/megumin?apikey=z48CV4SH`}, caption: mess.success})
@@ -283,8 +266,7 @@ uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/img/megumin?
 m.reply(mess.erorr)
 }}
 break
-case 'dado': { 
-await delay(5000)
+case 'dado': { 
 reply(mess.wait)
 try{
 uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/game/dado?apikey=z48CV4SH`}, caption: mess.success})
@@ -292,8 +274,7 @@ uno.sendMessage(m.chat, { image: { url: `https://api.fgmods.xyz/api/game/dado?ap
 m.reply(mess.erorr)
 }}
 break
-case 'creator': { 
-await delay(5000)
+case 'creator': { 
 const vcard =
 'BEGIN:VCARD\n' + // metadata of the contact card
 'VERSION:3.0\n' +
@@ -309,8 +290,7 @@ contacts: [{ vcard }],
 }, { quoted: fpay})
 }
 break
-case 'randommeme': { 
-await delay(5000)
+case 'randommeme': { 
 reply(mess.wait)
 try{
 let anuu = await fetchJson(`https://xzn.wtf/api/randommeme?apikey=JaaTzy`)
@@ -319,8 +299,7 @@ uno.sendMessage(m.chat, { video: { url: anuu.media}, caption: mess.success})
 m.reply(mess.erorr)
 }}
 break
-case 'toanime': { 
-await delay(5000)
+case 'toanime': { 
 if (!text) return m.reply(`Example : ${prefix+command} https://telegra.ph/file/95920995486c09bbee2ab.png`)
 let ss = await getBuffer(`https://xzn.wtf/api/toanime?url=${text}&apikey=JaaTzy`)
 try{
@@ -329,8 +308,7 @@ await uno.sendMessage(m.chat, {image: ss, caption: mess.success})
 m.reply(mess.erorr)
 }}
 break
-case 'join': { 
-await delay(5000)
+case 'join': { 
 if (!isCreator) return m.reply(mess.owner)
 if (!text) return m.reply(`Example : ${prefix + command} https://chat.whatsapp.com/`)
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return m.reply('Link tidak valid')
@@ -342,8 +320,7 @@ await uno.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catc
 m.reply(mess.erorr)
 }}
 break
-case 'leave': { 
-await delay(5000)
+case 'leave': { 
 if (!isCreator) return m.reply(mess.owner)
 try{
 await uno.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
@@ -351,8 +328,7 @@ await uno.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err)
 m.reply(mess.erorr)
 }}
 break
-case 'welcome': 
-await delay(5000)
+case 'welcome': 
 if (!isCreator) return
 if (args[0] == 'on'){
 if (global.welcome) return reply('UDAH ON!')
@@ -364,8 +340,7 @@ global.welcome = false
 reply('Sukses')
 }
 break
-case 'menu':{ 
-await delay(5000)
+case 'menu':{ 
 menu =`🤖 Hai saya uno bot
 harap jangan spam ya kak
 
