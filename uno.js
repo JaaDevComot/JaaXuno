@@ -87,6 +87,10 @@ uno.readMessages([m.key])
 console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
 }
 
+if (global.online) {
+uno.sendPresenceUpdate('available', from)
+}
+
 switch(command) { 
 case 'jadwalsholat': {
 let { jadwalsholat } = require('./lib/scraper')
